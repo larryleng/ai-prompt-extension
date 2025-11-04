@@ -53,11 +53,11 @@
 
 欢迎提交Issue和Pull Request！
 
-1. Fork 本项目
-2. 创建您的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交您的修改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开一个Pull Request
+欢迎提交 Issue 与 Pull Request。 
+贡献流程：Fork 仓库 → 创建特性分支（例如 feature/AmazingFeature）→ 提交改动（git commit -m "Add some AmazingFeature"）→ 推送分支 → 在 GitHub 发起 Pull Request。 
+建议规范：分支命名用 feature/、fix/、docs/ 前缀；
+提交信息简明清晰；PR 里说明动机、变更点、测试方式，并附截图（涉及 UI 时）。 
+我们会在 PR 中进行代码审查与合并讨论。
 
 ## 📄 许可证
 

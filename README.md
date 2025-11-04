@@ -2,7 +2,7 @@
 
 一个功能强大的浏览器AI提示词扩展插件，帮助用户优化和扩展提示词内容，提升AI对话体验。
 
-<p align="center"><img src="images/1.png" alt="大西瓜浏览器插件" width="128"></p>
+<p align="center"><img src="images/1.png" alt="大西瓜浏览器插件" width="1130"></p>
 
 ## ✨ 功能特性
 

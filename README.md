@@ -1,4 +1,4 @@
-# <img src="images/icon128.png" alt="大西瓜浏览器插件" width="32">大西瓜浏览器插件
+# <img src="images/icon128.png" alt="大西瓜浏览器插件" width="30"> 大西瓜浏览器插件
 
 一个功能强大的浏览器AI提示词扩展插件，帮助用户优化和扩展提示词内容，提升AI对话体验。
 

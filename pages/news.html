@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>业内资讯 - 大西瓜插件</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="settings-header-section">
+            <div class="header-left">
+                <button class="back-btn" id="backBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <h1 class="header-title">业内资讯</h1>
+            </div>
+            <button class="theme-toggle-btn" id="themeToggle">
+                <img src="../images/contrast.png" alt="主题切换" class="theme-toggle-icon">
+            </button>
+        </div>
+        <div class="main-content">
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">全部</button>
+                <button class="filter-btn" data-category="业界">业界</button>
+                <button class="filter-btn" data-category="技巧">技巧</button>
+                <button class="filter-btn" data-category="推荐">推荐</button>
+                <button class="filter-btn" data-category="更新">更新</button>
+                <button class="filter-btn" data-category="favorites">收藏</button>
+            </div>
+            <div id="newsContent">
+                <div class="loading">正在加载新闻数据...</div>
+            </div>
+
+            <div id="pagination" class="pagination" style="display: none;">
+                <button id="prevBtn">上一页</button>
+                <div id="pageNumbers" class="page-numbers"></div>
+                <button id="nextBtn">下一页</button>
+            </div>
+        </div>
+    
+    <div id="footer-container"></div>
+    </div>
+
+    <script type="module" src="modules/api/databaseService.js"></script>
+    <script type="module" src="news.js"></script>
+    <script src="footer.js"></script>
+</body>
+</html>

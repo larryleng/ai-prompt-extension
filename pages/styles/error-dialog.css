@@ -1,0 +1,603 @@
+/* 增强错误对话框样式 */
+.enhanced-error-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.enhanced-error-overlay.show {
+  opacity: 1;
+}
+
+.enhanced-error-dialog {
+  background: var(--bg-primary, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: hidden;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.enhanced-error-overlay.show .enhanced-error-dialog {
+  transform: scale(1) translateY(0);
+}
+
+/* 标题栏 */
+.error-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+.error-dialog-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary, #1f2937);
+}
+
+.error-dialog-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-secondary, #6b7280);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.error-dialog-close:hover {
+  background-color: var(--bg-secondary, #f3f4f6);
+}
+
+/* 内容区域 */
+.error-dialog-content {
+  padding: 20px 24px;
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+/* 错误类型 */
+.error-type {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--bg-secondary, #f9fafb);
+}
+
+.error-icon {
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.error-type.network-error .error-icon {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.error-type.permission-error .error-icon {
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.error-type.database-error .error-icon {
+  background: rgba(139, 69, 19, 0.1);
+}
+
+.error-type.format-error .error-icon {
+  background: rgba(168, 85, 247, 0.1);
+}
+
+.error-category {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary, #1f2937);
+}
+
+/* 错误详情 */
+.error-details {
+  margin-bottom: 20px;
+}
+
+.error-message {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: rgba(239, 68, 68, 0.05);
+  border-left: 4px solid #ef4444;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary, #1f2937);
+}
+
+.error-suggestion {
+  padding: 12px;
+  background: rgba(34, 197, 94, 0.05);
+  border-left: 4px solid #22c55e;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary, #1f2937);
+}
+
+.error-suggestion strong {
+  color: #16a34a;
+}
+
+/* 技术信息 */
+.error-tech-info {
+  margin-top: 16px;
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.error-tech-info summary {
+  padding: 8px 12px;
+  background: var(--bg-secondary, #f9fafb);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary, #6b7280);
+  user-select: none;
+}
+
+.error-tech-info summary:hover {
+  background: var(--bg-tertiary, #f3f4f6);
+}
+
+.tech-details {
+  padding: 12px;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  background: #fafafa;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+}
+
+.tech-details div {
+  margin-bottom: 4px;
+  color: var(--text-secondary, #6b7280);
+}
+
+.tech-details strong {
+  color: var(--text-primary, #1f2937);
+}
+
+/* 按钮区域 */
+.error-dialog-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+  background: var(--bg-secondary, #f9fafb);
+}
+
+.error-action-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 80px;
+}
+
+.retry-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.retry-btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.ok-btn {
+  background: var(--bg-tertiary, #e5e7eb);
+  color: var(--text-primary, #1f2937);
+}
+
+.ok-btn:hover {
+  background: var(--border-color, #d1d5db);
+  transform: translateY(-1px);
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] .enhanced-error-dialog {
+  background: var(--bg-primary, #1f2937);
+  color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .error-dialog-header {
+  border-bottom-color: var(--border-color, #374151);
+}
+
+[data-theme="dark"] .error-type {
+  background: var(--bg-secondary, #374151);
+}
+
+[data-theme="dark"] .error-message {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .error-suggestion {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .error-tech-info {
+  border-color: var(--border-color, #374151);
+}
+
+[data-theme="dark"] .error-tech-info summary {
+  background: var(--bg-secondary, #374151);
+}
+
+[data-theme="dark"] .tech-details {
+  background: var(--bg-secondary, #374151);
+  border-top-color: var(--border-color, #4b5563);
+}
+
+[data-theme="dark"] .error-dialog-actions {
+  background: var(--bg-secondary, #374151);
+  border-top-color: var(--border-color, #4b5563);
+}
+
+[data-theme="dark"] .ok-btn {
+  background: var(--bg-tertiary, #4b5563);
+  color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .ok-btn:hover {
+  background: var(--border-color, #6b7280);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .enhanced-error-dialog {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .error-dialog-header,
+  .error-dialog-content,
+  .error-dialog-actions {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .error-dialog-actions {
+    flex-direction: column;
+  }
+  
+  .error-action-btn {
+    width: 100%;
+  }
+}
+.enhanced-error-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.enhanced-error-overlay.show {
+  opacity: 1;
+}
+
+.enhanced-error-dialog {
+  background: var(--bg-primary, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: hidden;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.enhanced-error-overlay.show .enhanced-error-dialog {
+  transform: scale(1) translateY(0);
+}
+
+/* 标题栏 */
+.error-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+.error-dialog-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary, #1f2937);
+}
+
+.error-dialog-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-secondary, #6b7280);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.error-dialog-close:hover {
+  background-color: var(--bg-secondary, #f3f4f6);
+}
+
+/* 内容区域 */
+.error-dialog-content {
+  padding: 20px 24px;
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+/* 错误类型 */
+.error-type {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--bg-secondary, #f9fafb);
+}
+
+.error-icon {
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.error-type.network-error .error-icon {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.error-type.permission-error .error-icon {
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.error-type.database-error .error-icon {
+  background: rgba(139, 69, 19, 0.1);
+}
+
+.error-type.format-error .error-icon {
+  background: rgba(168, 85, 247, 0.1);
+}
+
+.error-category {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary, #1f2937);
+}
+
+/* 错误详情 */
+.error-details {
+  margin-bottom: 20px;
+}
+
+.error-message {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: rgba(239, 68, 68, 0.05);
+  border-left: 4px solid #ef4444;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary, #1f2937);
+}
+
+.error-suggestion {
+  padding: 12px;
+  background: rgba(34, 197, 94, 0.05);
+  border-left: 4px solid #22c55e;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary, #1f2937);
+}
+
+.error-suggestion strong {
+  color: #16a34a;
+}
+
+/* 技术信息 */
+.error-tech-info {
+  margin-top: 16px;
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.error-tech-info summary {
+  padding: 8px 12px;
+  background: var(--bg-secondary, #f9fafb);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary, #6b7280);
+  user-select: none;
+}
+
+.error-tech-info summary:hover {
+  background: var(--bg-tertiary, #f3f4f6);
+}
+
+.tech-details {
+  padding: 12px;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  background: #fafafa;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+}
+
+.tech-details div {
+  margin-bottom: 4px;
+  color: var(--text-secondary, #6b7280);
+}
+
+.tech-details strong {
+  color: var(--text-primary, #1f2937);
+}
+
+/* 按钮区域 */
+.error-dialog-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+  background: var(--bg-secondary, #f9fafb);
+}
+
+.error-action-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 80px;
+}
+
+.retry-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.retry-btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.ok-btn {
+  background: var(--bg-tertiary, #e5e7eb);
+  color: var(--text-primary, #1f2937);
+}
+
+.ok-btn:hover {
+  background: var(--border-color, #d1d5db);
+  transform: translateY(-1px);
+}
+
+/* 暗色主题适配 */
+[data-theme="dark"] .enhanced-error-dialog {
+  background: var(--bg-primary, #1f2937);
+  color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .error-dialog-header {
+  border-bottom-color: var(--border-color, #374151);
+}
+
+[data-theme="dark"] .error-type {
+  background: var(--bg-secondary, #374151);
+}
+
+[data-theme="dark"] .error-message {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .error-suggestion {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .error-tech-info {
+  border-color: var(--border-color, #374151);
+}
+
+[data-theme="dark"] .error-tech-info summary {
+  background: var(--bg-secondary, #374151);
+}
+
+[data-theme="dark"] .tech-details {
+  background: var(--bg-secondary, #374151);
+  border-top-color: var(--border-color, #4b5563);
+}
+
+[data-theme="dark"] .error-dialog-actions {
+  background: var(--bg-secondary, #374151);
+  border-top-color: var(--border-color, #4b5563);
+}
+
+[data-theme="dark"] .ok-btn {
+  background: var(--bg-tertiary, #4b5563);
+  color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .ok-btn:hover {
+  background: var(--border-color, #6b7280);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .enhanced-error-dialog {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .error-dialog-header,
+  .error-dialog-content,
+  .error-dialog-actions {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .error-dialog-actions {
+    flex-direction: column;
+  }
+  
+  .error-action-btn {
+    width: 100%;
+  }
+}

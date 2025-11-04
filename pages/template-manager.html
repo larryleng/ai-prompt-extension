@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>自定义模板管理 - 大西瓜提示词</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 页面头部 -->
+    <div class="header-section">
+      <div class="header-left">
+        <button id="backBtn" class="back-btn" title="返回">
+          <img src="../images/back-arrow.svg" alt="返回" class="back-icon">
+        </button>
+        <h2 class="header-title">自定义模板管理</h2>
+      </div>
+      <div class="theme-toggle">
+        <button id="themeToggle" class="theme-toggle-btn" title="切换主题">
+          <img src="../images/contrast.png" alt="切换主题" class="theme-toggle-icon">
+        </button>
+      </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="main-content">
+      <!-- 模板管理容器 -->
+      <div class="template-container">
+        <!-- 标签页导航 -->
+        <div class="template-tabs">
+          <div class="tab-nav">
+            <div class="tab-nav-left">
+              <img id="saveVideoTemplateBtn" src="../images/floppy-disk-pen.png" alt="保存模板" title="保存模板" class="action-icon save-icon">
+            </div>
+            <div class="tab-nav-right">
+              <button class="tab-btn active" data-tab="video" id="videoTab">
+                <img src="../images/film.png" alt="视频" class="tab-icon">
+                <span>视频模板</span>
+              </button>
+              <button class="tab-btn" data-tab="image" id="imageTab">
+                <img src="../images/picture.png" alt="图片" class="tab-icon">
+                <span>图片模板</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 模板编辑区域 -->
+        <div class="template-editor-section">
+        <!-- 视频模板内容 -->
+        <div class="tab-content active" id="videoContent">
+          <div class="form-group">
+            <div class="template-textarea-container">
+              <textarea 
+                id="videoTemplateContent" 
+                class="template-textarea" 
+                placeholder="请输入您的自定义视频提示词模板内容..."
+                rows="12"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- 操作按钮 -->
+          <div class="template-actions" style="display: none;">
+            <img id="saveVideoTemplateBtn" src="../images/floppy-disk-pen.png" alt="保存视频模板" title="保存视频模板" class="action-icon save-icon">
+            <img id="resetVideoTemplateBtn" src="../images/rotate-left.png" alt="重置视频模板" title="重置视频模板" class="action-icon reset-icon">
+          </div>
+        </div>
+
+        <!-- 图片模板内容 -->
+        <div class="tab-content" id="imageContent">
+          <div class="form-group">
+            <div class="template-textarea-container">
+              <textarea 
+                id="imageTemplateContent" 
+                class="template-textarea" 
+                placeholder="请输入您的自定义图片提示词模板内容..."
+                rows="12"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- 操作按钮 -->
+          <div class="template-actions" style="display: none;">
+            <img id="saveImageTemplateBtn" src="../images/floppy-disk-pen.png" alt="保存图片模板" title="保存图片模板" class="action-icon save-icon">
+            <img id="resetImageTemplateBtn" src="../images/rotate-left.png" alt="重置图片模板" title="重置图片模板" class="action-icon reset-icon">
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- 通知显示区域 -->
+      <div id="notificationContainer" class="notification-container"></div>
+    </div>
+  </div>
+  
+  <!-- Footer容器 -->
+  <div id="footer-container"></div>
+  
+  <script type="module" src="template-manager.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>

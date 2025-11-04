@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>大西瓜提示词</title>
+  <link rel="stylesheet" href="styles.css?v=1234567890">
+  <link rel="stylesheet" href="styles/error-dialog.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header-section">
+      <div class="logo-title-container">
+        <img src="../images/icon48.png" alt="大西瓜提示词" class="logo-icon">
+        <h2>大西瓜提示词 V3.6</h2>
+      </div>
+      <div class="theme-toggle">
+        <a href="popup.html" class="settings-link" title="API设置">
+          <img src="../images/settings.png" alt="设置" class="settings-icon">
+        </a>
+        <a href="template-manager.html" class="template-manager-link" title="自定义模板">
+          <img src="../images/edit.png" alt="自定义模板" class="template-manager-icon">
+        </a>
+        <img src="../images/floppy-disk-pen.png" alt="保存" class="save-icon">
+        <div class="bell-container">
+          <img src="../images/bell-ring.png" alt="通知" class="bell-icon">
+          <span class="notification-dot"></span>
+        </div>
+        <button id="themeToggle" class="theme-toggle-btn" title="切换主题">
+          <img src="../images/contrast.png" alt="切换主题" class="theme-toggle-icon">
+        </button>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="textarea-container">
+        <div id="promptContainer">
+          <div id="promptText" class="editable-div" contenteditable="true" placeholder="在这里输入您的提示词..."></div>
+        </div>
+        <div class="navigation-controls">
+          <div class="toggle-switch">
+            <input type="checkbox" id="modeToggle" class="toggle-input" checked>
+            <label for="modeToggle" class="toggle-label">
+              <img src="../images/film.png" alt="film" class="toggle-icon toggle-icon-left">
+              <img src="../images/picture.png" alt="picture" class="toggle-icon toggle-icon-right">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="expand-count-container">
+            <input type="number" id="expandCount" class="expand-count-input" min="1" max="20" value="1" title="扩写组数">
+            <span class="expand-count-unit">P</span>
+          </div>
+          <div class="template-source-selector">
+            <label class="checkbox-container">
+              <input type="checkbox" id="templateSourceCheckbox" checked>
+              <span class="checkmark"></span>
+              <span class="checkbox-label">云端</span>
+            </label>
+          </div>
+          <img id="expandBtn" src="../images/customization.png" alt="智能优化" title="智能优化" class="expand-icon">
+          <img id="copyBtn" src="../images/copy.png" alt="复制" title="复制" class="copy-icon">
+          <div class="external-links-dropdown">
+            <select id="externalLinksSelect" class="external-links-select" title="外部链接">
+              <option value="">大模型</option>
+            </select>
+          </div>
+          <img id="translateBtn" src="../images/language.png" alt="翻译" title="翻译" class="translate-icon">
+          <img id="undoBtn" src="../images/rotate-left.png" alt="撤回" title="撤回" class="undo-icon">
+          <img id="redoBtn" src="../images/rotate-r.png" alt="重做" title="重做" class="redo-icon">
+          <img src="../images/piggy-bank.png" alt="存钱罐" title="存钱罐" class="piggy-bank-icon">
+          <img id="clearBtn" src="../images/delete.png" alt="清除" title="清除" class="clear-icon">
+        </div>
+      </div>
+      
+      <!-- 标签选择区域 -->
+      <div class="tags-section">
+        <!-- 标签分类导航 -->
+       
+        
+       
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer容器 -->
+  <div id="footer-container"></div>
+  
+  <script type="module" src="modules/data/tagsData.js"></script>
+  <script type="module" src="modules/data/savedPrompts.js"></script>
+  <script type="module" src="modules/prompts/tags.js"></script>
+  <script type="module" src="index.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>

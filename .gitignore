@@ -1,0 +1,36 @@
+# IDE/Editor
+.vscode/
+.idea/
+.trae/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log
+pnpm-lock.yaml
+
+# Build outputs
+build/
+dist/
+coverage/
+.tmp/
+.temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Env / secrets
+.env
+.env.*
+
+# App caches or generated data
+config/promptCache.json
+config/newsTimestamp.json
+
+# Logs
+logs/
+*.log
+
+# Python http.server cache
+__pycache__/

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>大西瓜提示词</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="settings-header-section">
+      <div class="header-left">
+        <button id="backBtn" class="back-btn">
+          <img src="../images/back-arrow.svg" alt="返回" class="back-icon">
+        </button>
+        <h2 class="header-title">API配置</h2>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="form-group">
+        <div class="api-endpoint-line">
+          <label for="endpoint">API端点:</label>
+          <div class="api-links">
+            <span class="api-links-text">大模型API申请：</span>
+             <a href="https://ai.t8star.cn/register?aff=lZbu52764" target="_blank" class="api-link">贞贞的AI工坊</a>
+            <span class="api-links-separator">|</span>
+            <a href="https://www.bigmodel.cn/claude-code?ic=4VBJ48NFLR" target="_blank" class="api-link">智谱</a>
+            <span class="api-links-separator">|</span>
+            <a href="https://cloud.siliconflow.cn/i/uieIJFMV" target="_blank" class="api-link">硅基流动</a>
+            <span class="api-links-separator">|</span>
+            <a href="https://platform.deepseek.com/" target="_blank" class="api-link">DEEPSEEK</a>
+          </div>
+        </div>
+        <div class="endpoint-input-container">
+          <input type="text" id="endpointInput" class="endpoint-input" placeholder="输入API端点地址" value="https://api.deepseek.com/v1">
+          <select id="endpointSelect" class="endpoint-dropdown">
+            <option value="https://api.deepseek.com/v1">DEEPSEEK官方API</option>
+            <option value="https://open.bigmodel.cn/api/paas/v4/chat/completions">智谱AI</option>
+            <option value="https://api.siliconflow.cn/v1/chat/completions">硅基流动</option>
+            <option value="http://localhost:11434/v1">OLLAMA本地模型</option>
+            <option value="custom">自定义...</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="apiKey">API Key:</label>
+        <div class="password-input-container">
+          <input type="password" id="apiKey" placeholder="输入您的API密钥">
+          <button type="button" id="togglePassword" class="password-toggle-btn" title="显示/隐藏密钥">
+            <img src="../images/eye-closed.svg" alt="显示密钥" class="eye-icon">
+          </button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="model">模型名称:</label>
+        <input type="text" id="model" value="gpt-3.5-turbo">
+      </div>
+      <div class="button-group">
+        <button id="testBtn">测试连接</button>
+        <button id="saveBtn">保存配置</button>
+      </div>
+      <!-- 通知显示区域 -->
+      <div id="notificationContainer" class="notification-container"></div>
+    </div>
+  </div>
+  
+  <!-- Footer容器 -->
+  <div id="footer-container"></div>
+  
+  <script type="module" src="popup.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>
